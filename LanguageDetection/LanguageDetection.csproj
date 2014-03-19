@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B94DF83C-306C-4C28-B5F3-541AD9CBFAA6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LanguageDetection</RootNamespace>
+    <AssemblyName>LanguageDetection</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Detector.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Profiles\af" />
+    <EmbeddedResource Include="Profiles\ar" />
+    <EmbeddedResource Include="Profiles\bg" />
+    <EmbeddedResource Include="Profiles\bn" />
+    <EmbeddedResource Include="Profiles\cs" />
+    <EmbeddedResource Include="Profiles\da" />
+    <EmbeddedResource Include="Profiles\de" />
+    <EmbeddedResource Include="Profiles\el" />
+    <EmbeddedResource Include="Profiles\en" />
+    <EmbeddedResource Include="Profiles\es" />
+    <EmbeddedResource Include="Profiles\et" />
+    <EmbeddedResource Include="Profiles\fa" />
+    <EmbeddedResource Include="Profiles\fi" />
+    <EmbeddedResource Include="Profiles\fr" />
+    <EmbeddedResource Include="Profiles\gu" />
+    <EmbeddedResource Include="Profiles\he" />
+    <EmbeddedResource Include="Profiles\hi" />
+    <EmbeddedResource Include="Profiles\hr" />
+    <EmbeddedResource Include="Profiles\hu" />
+    <EmbeddedResource Include="Profiles\id" />
+    <EmbeddedResource Include="Profiles\it" />
+    <EmbeddedResource Include="Profiles\ja" />
+    <EmbeddedResource Include="Profiles\kn" />
+    <EmbeddedResource Include="Profiles\ko" />
+    <EmbeddedResource Include="Profiles\lt" />
+    <EmbeddedResource Include="Profiles\lv" />
+    <EmbeddedResource Include="Profiles\mk" />
+    <EmbeddedResource Include="Profiles\ml" />
+    <EmbeddedResource Include="Profiles\mr" />
+    <EmbeddedResource Include="Profiles\ne" />
+    <EmbeddedResource Include="Profiles\nl" />
+    <EmbeddedResource Include="Profiles\no" />
+    <EmbeddedResource Include="Profiles\pa" />
+    <EmbeddedResource Include="Profiles\pl" />
+    <EmbeddedResource Include="Profiles\pt" />
+    <EmbeddedResource Include="Profiles\ro" />
+    <EmbeddedResource Include="Profiles\ru" />
+    <EmbeddedResource Include="Profiles\sk" />
+    <EmbeddedResource Include="Profiles\sl" />
+    <EmbeddedResource Include="Profiles\so" />
+    <EmbeddedResource Include="Profiles\sq" />
+    <EmbeddedResource Include="Profiles\sv" />
+    <EmbeddedResource Include="Profiles\sw" />
+    <EmbeddedResource Include="Profiles\ta" />
+    <EmbeddedResource Include="Profiles\te" />
+    <EmbeddedResource Include="Profiles\th" />
+    <EmbeddedResource Include="Profiles\tl" />
+    <EmbeddedResource Include="Profiles\tr" />
+    <EmbeddedResource Include="Profiles\uk" />
+    <EmbeddedResource Include="Profiles\ur" />
+    <EmbeddedResource Include="Profiles\vi" />
+    <EmbeddedResource Include="Profiles\zh-cn" />
+    <EmbeddedResource Include="Profiles\zh-tw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

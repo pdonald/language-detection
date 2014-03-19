@@ -1,0 +1,15 @@
+# Build files
+bin/
+obj/
+TestResults/
+
+# Visual Studio
+*.suo
+*.csproj.user
+
+# Visual Studio Profiler
+*.psess
+*.vspx
+
+# NuGet
+packages/

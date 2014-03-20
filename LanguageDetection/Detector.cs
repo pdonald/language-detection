@@ -16,12 +16,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-
-using Newtonsoft.Json;
 
 namespace LanguageDetection
 {
@@ -62,7 +61,7 @@ namespace LanguageDetection
         {
             AddLanguages(GetType().Assembly.GetManifestResourceNames()
                                            .Where(name => name.StartsWith(ResourceNamePrefix))
-                                           .Select(name => name.Substring(ResourceNamePrefix.Length))
+                                           .Select(name => name.Substring(ResourceNamePrefix.Length).Replace(".bin.gz", ""))
                                            .ToArray());
         }
 
@@ -72,11 +71,12 @@ namespace LanguageDetection
 
             foreach (string language in languages)
             {
-                using (Stream stream = assembly.GetManifestResourceStream("LanguageDetection.Profiles." + language))
-                using (StreamReader reader = new StreamReader(stream))
+                using (Stream stream = assembly.GetManifestResourceStream(ResourceNamePrefix + language + ".bin.gz"))
+                using (Stream decompressedStream = new GZipStream(stream, CompressionMode.Decompress))
                 {
-                    string json = reader.ReadToEnd();
-                    AddLanguageProfile(JsonConvert.DeserializeObject<LanguageProfile>(json));
+                    LanguageProfile profile = new LanguageProfile();
+                    profile.Load(decompressedStream);
+                    AddLanguageProfile(profile);
                 }
             }
         }
@@ -364,16 +364,6 @@ namespace LanguageDetection
                     return buffer.ToString(buffer.Length - n, buffer.Length - n);
                 }
             }
-        }
-
-        private class LanguageProfile
-        {
-            [JsonProperty(PropertyName = "name")]
-            public string Code { get; set; }
-            [JsonProperty(PropertyName = "freq")]
-            public Dictionary<string, int> Frequencies { get; set; }
-            [JsonProperty(PropertyName = "n_words")]
-            public int[] WordCount { get; set; }
         }
     }
 }

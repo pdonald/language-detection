@@ -4,8 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageDetection", "LanguageDetection\LanguageDetection.csproj", "{B94DF83C-306C-4C28-B5F3-541AD9CBFAA6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{11B39718-65C6-4397-A3C8-E360E24CE826} = {11B39718-65C6-4397-A3C8-E360E24CE826}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageDetection.Tests", "LanguageDetection.Tests\LanguageDetection.Tests.csproj", "{61B1B433-CAF7-471B-A6E9-FD0340175273}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageDetection.Build", "LanguageDetection.Build\LanguageDetection.Build.csproj", "{11B39718-65C6-4397-A3C8-E360E24CE826}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{61B1B433-CAF7-471B-A6E9-FD0340175273}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61B1B433-CAF7-471B-A6E9-FD0340175273}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61B1B433-CAF7-471B-A6E9-FD0340175273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11B39718-65C6-4397-A3C8-E360E24CE826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11B39718-65C6-4397-A3C8-E360E24CE826}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11B39718-65C6-4397-A3C8-E360E24CE826}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11B39718-65C6-4397-A3C8-E360E24CE826}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

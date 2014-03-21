@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>LanguageDetection</id>
+    <title>Language Detection</title>
+    <summary>Detect the language of a text using naive a Bayesian filter with generated language profiles from Wikipedia abstract xml, 99% over precision for 53 languages. Original author: Nakatani Shuyo.</summary>
+    <version>1.0.0</version>
+    <authors>Pēteris Ņikiforovs</authors>
+    <owners>Pēteris Ņikiforovs</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+    <projectUrl>https://github.com/pdonald/language-detection</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.NET Port of Language Detection Library for Java</description>
+    <releaseNotes>Based on v03-03-2014</releaseNotes>
+    <copyright>Copyright 2014 Pēteris Ņikiforovs</copyright>
+    <tags>nlp, language identification, language guessing, language detection, language detecting, language detector</tags>
+  </metadata>
+  <files>
+    <file src="LanguageDetection\bin\Release\LanguageDetection.dll" target="lib\net45\LanguageDetection.dll" /> 
+  </files>
+</package>

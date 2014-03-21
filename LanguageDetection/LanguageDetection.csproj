@@ -39,7 +39,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Detector.cs" />
+    <Compile Include="LanguageDetector.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="LanguageProfile.cs" />
   </ItemGroup>
@@ -99,13 +99,16 @@
     <None Include="Profiles\zh-tw" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <UsingTask TaskName="LanguageDetection.Build.BinarizeLanguageProfileTask" 
-             AssemblyFile="$(SolutionDir)LanguageDetection.Build\bin\$(Configuration)\LanguageDetection.Build.dll"/>
+  <UsingTask TaskName="LanguageDetection.Build.BinarizeLanguageProfileTask" AssemblyFile="$(SolutionDir)LanguageDetection.Build\bin\$(Configuration)\LanguageDetection.Build.dll" />
   <Target Name="BeforeBuild">
-    <ItemGroup><Profiles Include="Profiles\*"/></ItemGroup>
-    <ItemGroup><Languages Include="@(Profiles->'%(Filename)')"/></ItemGroup>
-    <MakeDir Directories="$(IntermediateOutputPath)Profiles"/>
-    <BinarizeLanguageProfileTask InputFilename="%(Profiles.Identity)" OutputFilename="$(IntermediateOutputPath)%(Profiles.Identity).bin.gz"/>
+    <ItemGroup>
+      <Profiles Include="Profiles\*" />
+    </ItemGroup>
+    <ItemGroup>
+      <Languages Include="@(Profiles->'%(Filename)')" />
+    </ItemGroup>
+    <MakeDir Directories="$(IntermediateOutputPath)Profiles" />
+    <BinarizeLanguageProfileTask InputFilename="%(Profiles.Identity)" OutputFilename="$(IntermediateOutputPath)%(Profiles.Identity).bin.gz" />
     <ItemGroup>
       <EmbeddedResource Include="$(IntermediateOutputPath)Profiles\%(Languages.Identity).bin.gz">
         <LogicalName>$(RootNamespace).Profiles.%(Languages.Identity).bin.gz</LogicalName>

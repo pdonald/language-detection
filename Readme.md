@@ -10,13 +10,15 @@ Add a reference to `LanguageDetection.dll`.
 
     using LanguageDetection;
     
-    Detector detector = new Detector();
+Load all supported languages
+    
+    LanguageDetector detector = new LanguageDetector();
     detector.AddAllLanguages();
     Assert.AreEqual("lv", detector.Detect("čau, man iet labi, un kā iet tev?"));
     
-or
+or a small subset
 
-    Detector detector = new Detector();
+    LanguageDetector detector = new LanguageDetector();
     detector.AddLanguages("lv", "lt", "en");
     Assert.AreEqual("lv", detector.Detect("čau, man iet labi, un kā iet tev?"));
 

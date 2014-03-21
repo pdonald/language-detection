@@ -37,7 +37,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DetectorTests.cs" />
+    <Compile Include="LanguageDetectorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

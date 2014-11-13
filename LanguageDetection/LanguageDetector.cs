@@ -29,19 +29,19 @@ namespace LanguageDetection
         private static readonly Regex UrlRegex = new Regex("https?://[-_.?&~;+=/#0-9A-Za-z]{1,2076}", RegexOptions.Compiled);
         private static readonly Regex EmailRegex = new Regex("[-_.0-9A-Za-z]{1,64}@[-_0-9A-Za-z]{1,255}[-_.0-9A-Za-z]{1,255}", RegexOptions.Compiled);
         private const string ResourceNamePrefix = "LanguageDetection.Profiles.";
-        private const double AlphaDefault = 0.5;
-        private const double AlphaWidth = 0.05;
-        private const int MaxIterations = 1000;
-        private const double ProbabilityThreshold = 0.1;
-        private const double ConvergenceThreshold = 0.99999;
-        private const int BaseFrequency = 10000;
 
         private List<LanguageProfile> languages;
         private Dictionary<string, Dictionary<LanguageProfile, double>> wordLanguageProbabilities;
 
         public LanguageDetector()
         {
-            Alpha = AlphaDefault;
+            AlphaWidth = 0.05;
+            MaxIterations = 1000;
+            ProbabilityThreshold = 0.1;
+            ConvergenceThreshold = 0.99999;
+            BaseFrequency = 10000;
+
+            Alpha = 0.5;
             RandomSeed = null;
             Trials = 7;
             NGramLength = 3;
@@ -56,6 +56,11 @@ namespace LanguageDetection
         public int Trials { get; set; }
         public int NGramLength { get; set; }
         public int MaxTextLength { get; set; }
+        public double AlphaWidth { get; set; }
+        public int MaxIterations { get; set; }
+        public double ProbabilityThreshold { get; set; }
+        public double ConvergenceThreshold { get; set; }
+        public int BaseFrequency { get; set; }
 
         public void AddAllLanguages()
         {

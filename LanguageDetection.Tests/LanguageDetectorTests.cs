@@ -53,6 +53,23 @@ namespace LanguageDetection.Tests
             Test("cs", texts, new[] { new[] { "en", "cs", "sk", "lv" } });
         }
 
+        [Test]
+        public void Issue_2()
+        {
+            string text = "Výsledky kola švýcarské hokejové ligy";
+
+            LanguageDetector detector = new LanguageDetector();
+            detector.AddAllLanguages();
+
+            Assert.AreEqual("sk", detector.Detect(text));
+            
+            detector = new LanguageDetector();
+            detector.ConvergenceThreshold = 0.9;
+            detector.AddAllLanguages();
+
+            Assert.AreEqual("cs", detector.Detect(text));
+        }
+
         private void Test(string lang, string[] texts, string[][] pairs = null)
         {
             LanguageDetector detector;

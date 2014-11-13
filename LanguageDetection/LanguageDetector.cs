@@ -166,7 +166,7 @@ namespace LanguageDetection
         }
 
         #region Normalize text
-        private string NormalizeText(string text)
+        protected virtual string NormalizeText(string text)
         {
             if (text.Length > MaxTextLength)
                 text = text.Substring(0, MaxTextLength);

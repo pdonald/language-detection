@@ -361,7 +361,7 @@ namespace LanguageDetection
                 }
                 else
                 {
-                    return buffer.ToString(buffer.Length - n, buffer.Length - n);
+                    return buffer.ToString(buffer.Length - n, n);
                 }
             }
         }

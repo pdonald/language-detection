@@ -4,7 +4,7 @@
     <id>LanguageDetection</id>
     <title>Language Detection</title>
     <summary>Detect the language of a text using naive a Bayesian filter with generated language profiles from Wikipedia abstract xml, 99% over precision for 53 languages. Original author: Nakatani Shuyo.</summary>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <authors>Pēteris Ņikiforovs</authors>
     <owners>Pēteris Ņikiforovs</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>

@@ -43,6 +43,16 @@ namespace LanguageDetection.Tests
             Test("fr", texts, new[] { new[] { "en", "it", "es", "pt" } });
         }
 
+        [Test]
+        public void Issue_1()
+        {
+            string[] texts = new[] { "Výsledky kvalifikace slopestylu na ZOH v Soči" };
+
+            Test("cs", texts);
+            Test("cs", texts, new[] { new[] { "cs", "sk" } });
+            Test("cs", texts, new[] { new[] { "en", "cs", "sk", "lv" } });
+        }
+
         private void Test(string lang, string[] texts, string[][] pairs = null)
         {
             LanguageDetector detector;

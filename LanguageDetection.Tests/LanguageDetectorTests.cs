@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using System.Linq;
+
 using NUnit.Framework;
 
 namespace LanguageDetection.Tests
@@ -59,15 +61,19 @@ namespace LanguageDetection.Tests
             string text = "Výsledky kola švýcarské hokejové ligy";
 
             LanguageDetector detector = new LanguageDetector();
+            detector.RandomSeed = 1;
             detector.AddAllLanguages();
 
             Assert.AreEqual("sk", detector.Detect(text));
+            Assert.AreEqual(1, detector.DetectAll(text).Count());
             
             detector = new LanguageDetector();
+            detector.RandomSeed = 1;
             detector.ConvergenceThreshold = 0.9;
             detector.AddAllLanguages();
 
             Assert.AreEqual("cs", detector.Detect(text));
+            Assert.AreEqual(2, detector.DetectAll(text).Count());
         }
 
         private void Test(string lang, string[] texts, string[][] pairs = null)
@@ -75,6 +81,7 @@ namespace LanguageDetection.Tests
             LanguageDetector detector;
             
             detector = new LanguageDetector();
+            detector.RandomSeed = 1;
             detector.AddAllLanguages();
 
             foreach (string text in texts)
@@ -85,6 +92,7 @@ namespace LanguageDetection.Tests
                 foreach (string[] pair in pairs)
                 {
                     detector = new LanguageDetector();
+                    detector.RandomSeed = 1;
                     detector.AddLanguages(pair);
                     detector.AddLanguages(lang);
                     

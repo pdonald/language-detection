@@ -8,20 +8,35 @@ Add a reference to `LanguageDetection.dll`.
 
 ## Use
 
-    using LanguageDetection;
+```csharp
+using LanguageDetection;
+```
     
 Load all supported languages
     
-    LanguageDetector detector = new LanguageDetector();
-    detector.AddAllLanguages();
-    Assert.AreEqual("lv", detector.Detect("čau, man iet labi, un kā iet tev?"));
+```csharp
+LanguageDetector detector = new LanguageDetector();
+detector.AddAllLanguages();
+Assert.AreEqual("lv", detector.Detect("čau, man iet labi, un kā iet tev?"));
+```
     
 or a small subset
 
-    LanguageDetector detector = new LanguageDetector();
-    detector.AddLanguages("lv", "lt", "en");
-    Assert.AreEqual("lv", detector.Detect("čau, man iet labi, un kā iet tev?"));
+```csharp
+LanguageDetector detector = new LanguageDetector();
+detector.AddLanguages("lv", "lt", "en");
+Assert.AreEqual("lv", detector.Detect("čau, man iet labi, un kā iet tev?"));
+```
 
+You can also change parameters
+
+```csharp
+LanguageDetector detector = new LanguageDetector();
+detector.RandomSeed = 1;
+detector.ConvergenceThreshold = 0.9;
+detector.MaxIterations = 50;
+```
+    
 ## License
 
 Apache 2.0

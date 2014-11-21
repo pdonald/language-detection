@@ -70,9 +70,10 @@ namespace LanguageDetection.Tests
             detector = new LanguageDetector();
             detector.RandomSeed = 1;
             detector.ConvergenceThreshold = 0.9;
+            detector.MaxIterations = 50;
             detector.AddAllLanguages();
 
-            Assert.AreEqual("cs", detector.Detect(text));
+            Assert.AreEqual("sk", detector.Detect(text));
             Assert.AreEqual(2, detector.DetectAll(text).Count());
         }
 
